@@ -92,6 +92,19 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                  <image>
+                    <name>demo-modulith-sb4:0.0.1</name>
+                    <env>
+                      <BP_JVM_VERSION>21</BP_JVM_VERSION>
+                    </env>
+                  </image>
+                  <docker>
+                    <!-- Rootless Podman: bind the real Docker/Podman socket into the builder
+                         instead of the hard-coded /var/run/docker.sock -->
+                    <bindHostToBuilder>true</bindHostToBuilder>
+                  </docker>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
